@@ -27,17 +27,6 @@
 java -jar target/monitor-sensors-1.0-SNAPSHOT.jar
 ```
 
-### Запуск в Docker
-
-1. Убедитесь, что у вас установлены:
-   - Docker
-   - Docker Compose
-
-2. Соберите и запустите контейнеры:
-```bash
-docker-compose up --build
-```
-
 ## Доступ к приложению
 
 - API доступно по адресу: http://localhost:8080
