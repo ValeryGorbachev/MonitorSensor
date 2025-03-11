@@ -1,0 +1,26 @@
+services:
+  app:
+    build: .
+    image: monitor_sensors_application
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/monitor_sensors
+      - SPRING_DATASOURCE_USERNAME=monitor_sensors
+      - SPRING_DATASOURCE_PASSWORD=monitor_sensors
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    ports:
+      - "5433:5432"
+    environment:
+      - POSTGRES_DB=monitor_sensors
+      - POSTGRES_USER=monitor_sensors
+      - POSTGRES_PASSWORD=monitor_sensors
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
